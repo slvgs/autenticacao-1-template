@@ -4,13 +4,15 @@ CREATE TABLE users (
     name TEXT NOT NULL,
     email TEXT UNIQUE NOT NULL,
     password TEXT NOT NULL,
+    role TEXT NOT NULL,
     created_at TEXT DEFAULT (DATETIME()) NOT NULL
 );
 
-INSERT INTO users (id, name, email, password)
+INSERT INTO users (id, name, email, password, role)
 VALUES
-	("u001", "Fulano", "fulano@email.com", "fulano123"),
-	("u002", "Beltrana", "beltrana@email.com", "beltrana00");
+	("u001", "Fulano", "fulano@email.com", "fulano123", "NORMAL"),
+	("u002", "Beltrana", "beltrana@email.com", "beltrana00", "NORMAL"),
+	("u003", "Astrodev", "astrodev@email.com", "astrodev99", "ADMIN");
 
 CREATE TABLE products (
     id TEXT PRIMARY KEY UNIQUE NOT NULL,

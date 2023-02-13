@@ -3,6 +3,7 @@ import { GetUsersInput, GetUsersOutput, LoginInput, LoginOutput, SignupInput, Si
 import { BadRequestError } from "../errors/BadRequestError"
 import { NotFoundError } from "../errors/NotFoundError"
 import { User } from "../models/User"
+import { USER_ROLES } from "../types"
 
 export class UserBusiness {
     constructor(
@@ -24,6 +25,7 @@ export class UserBusiness {
                 userDB.name,
                 userDB.email,
                 userDB.password,
+                userDB.role,
                 userDB.created_at
             )
 
@@ -65,6 +67,7 @@ export class UserBusiness {
             name,
             email,
             password,
+            USER_ROLES.NORMAL, // só é possível criar users com contas normais
             new Date().toISOString()
         )
 
